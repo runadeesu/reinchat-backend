@@ -18,12 +18,18 @@ workflows:
           npx cap sync ios
       - name: Build Unsigned Release iOS App for Sideloadly
         script: |
+          export COPYFILE_DISABLE=1
           cd ios/App
           xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
           rm -rf build/Payload build/REINChat.ipa
           mkdir -p build/Payload
           cp -R build/Build/Products/Release-iphoneos/App.app build/Payload/
+
+          # Remove all macOS AppleDouble metadata and hidden resource fork files (._*)
+          find build/Payload -name ".DS_Store" -delete || true
+          find build/Payload -name "._*" -delete || true
+          rm -rf build/Payload/__MACOSX || true
 
           # Force executable permissions (+x) on App binary and app bundle
           chmod -R 755 build/Payload/App.app
@@ -37,7 +43,8 @@ workflows:
           fi
 
           cd build
-          zip -qr REINChat.ipa Payload
+          # Create clean IPA without __MACOSX or ._* AppleDouble files (-X option)
+          zip -qr -X REINChat.ipa Payload -x "*.DS_Store" -x "__MACOSX/*" -x "*/._*"
           cp REINChat.ipa $CM_BUILD_DIR/REINChat.ipa
     artifacts:
       - "*.ipa"

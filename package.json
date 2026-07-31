@@ -2,7 +2,7 @@
   "name": "reinchat",
   "version": "1.0.0",
   "description": "REINChat - Premium Realtime Cross-Platform Chat Application",
-  "main": "main-electron.js",
+  "main": "server/index.js",
   "type": "module",
   "engines": {
     "node": ">=18.0.0"

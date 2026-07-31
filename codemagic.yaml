@@ -24,5 +24,8 @@ workflows:
           cp -r build/App.xcarchive/Products/Applications/App.app build/Payload/
           cd build
           zip -r REINChat.ipa Payload
+          cp REINChat.ipa $CM_BUILD_DIR/REINChat.ipa || true
     artifacts:
+      - "*.ipa"
+      - "**/*.ipa"
       - ios/App/build/*.ipa

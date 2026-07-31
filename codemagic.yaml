@@ -20,12 +20,12 @@ workflows:
         script: |
           cd ios/App
           xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release -derivedDataPath build -archivePath build/App.xcarchive archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+          rm -rf build/Payload build/REINChat.ipa
           mkdir -p build/Payload
-          cp -r build/App.xcarchive/Products/Applications/App.app build/Payload/
+          cp -R build/App.xcarchive/Products/Applications/App.app build/Payload/
           cd build
-          zip -r REINChat.ipa Payload
-          cp REINChat.ipa $CM_BUILD_DIR/REINChat.ipa || true
+          zip -qr REINChat.ipa Payload
+          cp REINChat.ipa $CM_BUILD_DIR/REINChat.ipa
     artifacts:
       - "*.ipa"
-      - "**/*.ipa"
       - ios/App/build/*.ipa

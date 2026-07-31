@@ -23,6 +23,14 @@ workflows:
           rm -rf build/Payload build/REINChat.ipa
           mkdir -p build/Payload
           cp -R build/App.xcarchive/Products/Applications/App.app build/Payload/
+          
+          # Ensure Info.plist variables are explicitly resolved for Sideloadly
+          if [ -f build/Payload/App.app/Info.plist ]; then
+            sed -i '' 's/\$(EXECUTABLE_NAME)/App/g' build/Payload/App.app/Info.plist || true
+            sed -i '' 's/\$(PRODUCT_BUNDLE_IDENTIFIER)/com.studios.reinchat/g' build/Payload/App.app/Info.plist || true
+            sed -i '' 's/\$(PRODUCT_NAME)/REINChat/g' build/Payload/App.app/Info.plist || true
+          fi
+
           cd build
           zip -qr REINChat.ipa Payload
           cp REINChat.ipa $CM_BUILD_DIR/REINChat.ipa

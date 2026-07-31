@@ -19,12 +19,15 @@ workflows:
       - name: Build Unsigned Release iOS App for Sideloadly
         script: |
           cd ios/App
-          # Build raw Release-iphoneos App bundle directly without archive wrappers
           xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
           rm -rf build/Payload build/REINChat.ipa
           mkdir -p build/Payload
           cp -R build/Build/Products/Release-iphoneos/App.app build/Payload/
+
+          # Force executable permissions (+x) on App binary and app bundle
+          chmod -R 755 build/Payload/App.app
+          chmod +x build/Payload/App.app/App || true
 
           # Ensure Info.plist variables are explicitly set
           if [ -f build/Payload/App.app/Info.plist ]; then

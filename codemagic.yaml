@@ -49,7 +49,9 @@ workflows:
           fi
 
           cd build
-          zip -qr -X REINChat.ipa Payload -x "*.DS_Store" -x "__MACOSX/*" -x "*/._*"
+          # Python Zipper creating explicit Payload and Payload/App.app directory entries for Sideloadly line 822
+          python3 -c "import zipfile, os; ziph = zipfile.ZipFile('REINChat.ipa', 'w', zipfile.ZIP_DEFLATED); ziph.write('Payload', 'Payload'); ziph.write('Payload/App.app', 'Payload/App.app'); [ziph.write(os.path.join(root, f), os.path.relpath(os.path.join(root, f), '.')) for root, dirs, files in os.walk('Payload') for f in files]; ziph.close()"
+
           cp REINChat.ipa $CM_BUILD_DIR/REINChat.ipa
     artifacts:
       - "*.ipa"

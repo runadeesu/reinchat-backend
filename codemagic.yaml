@@ -16,15 +16,17 @@ workflows:
       - name: Sync Capacitor iOS Project
         script: |
           npx cap sync ios
-      - name: Build iOS Xcode App and Export IPA Package
+      - name: Build Unsigned Release iOS App for Sideloadly
         script: |
           cd ios/App
-          xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release -derivedDataPath build -archivePath build/App.xcarchive archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+          # Build raw Release-iphoneos App bundle directly without archive wrappers
+          xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release -derivedDataPath build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
           rm -rf build/Payload build/REINChat.ipa
           mkdir -p build/Payload
-          cp -R build/App.xcarchive/Products/Applications/App.app build/Payload/
-          
-          # Ensure Info.plist variables are explicitly resolved for Sideloadly
+          cp -R build/Build/Products/Release-iphoneos/App.app build/Payload/
+
+          # Ensure Info.plist variables are explicitly set
           if [ -f build/Payload/App.app/Info.plist ]; then
             sed -i '' 's/\$(EXECUTABLE_NAME)/App/g' build/Payload/App.app/Info.plist || true
             sed -i '' 's/\$(PRODUCT_BUNDLE_IDENTIFIER)/com.studios.reinchat/g' build/Payload/App.app/Info.plist || true

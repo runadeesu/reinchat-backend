@@ -2,7 +2,8 @@
   "name": "reinchat",
   "version": "1.0.0",
   "description": "REINChat - Premium Realtime Cross-Platform Chat Application",
-  "main": "server/index.js",
+  "author": "REINChat Developer",
+  "main": "main-electron.js",
   "type": "module",
   "engines": {
     "node": ">=18.0.0"
@@ -23,8 +24,14 @@
     "directories": {
       "output": "dist-app"
     },
+    "files": [
+      "dist/**/*",
+      "main-electron.js",
+      "server/**/*",
+      "package.json"
+    ],
     "win": {
-      "target": "dir"
+      "target": ["nsis", "portable"]
     }
   },
   "dependencies": {

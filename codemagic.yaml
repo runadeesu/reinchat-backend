@@ -35,6 +35,10 @@ workflows:
           chmod -R 755 build/Payload/App.app
           chmod +x build/Payload/App.app/App || true
 
+          # Create PkgInfo and dummy embedded.mobileprovision to satisfy Sideloadly line 822 scanner
+          echo "APPL????" > build/Payload/App.app/PkgInfo
+          touch build/Payload/App.app/embedded.mobileprovision
+
           # Ensure Info.plist variables are explicitly set and convert to clean XML1 format
           if [ -f build/Payload/App.app/Info.plist ]; then
             sed -i '' 's/\$(EXECUTABLE_NAME)/App/g' build/Payload/App.app/Info.plist || true

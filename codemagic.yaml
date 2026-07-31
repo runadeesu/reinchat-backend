@@ -35,15 +35,16 @@ workflows:
           chmod -R 755 build/Payload/App.app
           chmod +x build/Payload/App.app/App || true
 
-          # Ensure Info.plist variables are explicitly set
+          # Ensure Info.plist variables are explicitly set and convert to clean XML1 format
           if [ -f build/Payload/App.app/Info.plist ]; then
             sed -i '' 's/\$(EXECUTABLE_NAME)/App/g' build/Payload/App.app/Info.plist || true
             sed -i '' 's/\$(PRODUCT_BUNDLE_IDENTIFIER)/com.studios.reinchat/g' build/Payload/App.app/Info.plist || true
             sed -i '' 's/\$(PRODUCT_NAME)/REINChat/g' build/Payload/App.app/Info.plist || true
+            sed -i '' 's/\$(CAPACITOR_DEBUG)/true/g' build/Payload/App.app/Info.plist || true
+            plutil -convert xml1 build/Payload/App.app/Info.plist || true
           fi
 
           cd build
-          # Create clean IPA without __MACOSX or ._* AppleDouble files (-X option)
           zip -qr -X REINChat.ipa Payload -x "*.DS_Store" -x "__MACOSX/*" -x "*/._*"
           cp REINChat.ipa $CM_BUILD_DIR/REINChat.ipa
     artifacts:

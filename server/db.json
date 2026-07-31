@@ -1,0 +1,71 @@
+{
+  "users": [
+    {
+      "id": "usr_1785461251297",
+      "accountId": "runadmin",
+      "displayName": "runadmin",
+      "email": "runatv888@gmail.com",
+      "password": "AppleP12.com",
+      "avatar": "👤",
+      "bio": "よろしくお願いします！",
+      "status": "offline",
+      "role": "admin",
+      "qrCode": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAklEQVR4AewaftIAAANwSURBVO3BQW7dWBAEwcwG73/lGi286NUDCPLLlqYizBeq/hiqlqFqGaqWoWoZqpahahmqlqFqGaqWoWoZqpahahmqlqFqGaqWi4dUvlMSvpPKloRNZUvCpvKdkvDEULUMVctQtVy8LAlvUnlC5Y4knKhsSbgjCW9SedNQtQxVy1C1XHyYyh1JuEPlJAknKnck4U0qdyThk4aqZahahqrl4pdJwqayJWFLwqZyonKShJ9sqFqGqmWoWi7+Z1S2JJwk4UTlNxmqlqFqGaqWiw9Lwr8kCZvKiconJeFfMlQtQ9UyVC0XL1P5yZKwqWxJ2FTuUPmXDVXLULUMVYv5wg+mcpKET1LZkvCTDVXLULUMVYv5wgMqWxI2lTcl4Q6VkyRsKidJuEPlTUn4pKFqGaqWoWq5eCgJm8qWhE3lJAknKlsS7kjCprIl4U1JuEPlbxqqlqFqGaqWi4dU7kjCicoTKp+ksiVhU9mScKKyJeFE5SQJTwxVy1C1DFXLxUNJOFE5ScKWhDtUTpJwkoQTlS0Jv9lQtQxVy1C1XDyk8iaVT1LZkrCpnKicJGFTuUPlbxqqlqFqGaqWi5clYVN5IgmbypaEE5UtCZvKloQ7VE6S8ITKloRPGqqWoWoZqpaLb5aETWVLwqayJeFEZUvCSRJOVO5Q2ZJwh8qJykkSnhiqlqFqGaoW84UHVLYkPKGyJeGTVLYknKjckYRNZUvCv2SoWoaqZahaLr6ZypaEE5UtCZ+k8iaVE5U7krCpbEl4YqhahqplqFrMF34wlZMk3KGyJWFTOUnCHSonSdhUtiS8aahahqplqFouHlL5TknYknCHykkSNpUtCZvKicqWhJMkbConKlsSnhiqlqFqGaqWi5cl4U0qJypbEu5Iwicl4YkknKi8aahahqplqFouPkzljiQ8obIl4UTlDpUTlSdUTpKwJeFNQ9UyVC1D1XLxyyThJAmbykkSTlS+k8pJEp4YqpahahmqlotfRmVLwh1JOFHZkrCpbEnYVLYkbCpbEk5U3jRULUPVMlQtFx+WhE9Kwh0qWxJOVLYkbConKnck4W8aqpahahmqlouXqXwnlS0Jd6g8kYRN5SQJJyp/01C1DFXLULWYL1T9MVQtQ9UyVC1D1TJULUPVMlQtQ9UyVC1D1TJULUPVMlQtQ9UyVC3/ATndaS3DnM5qAAAAAElFTkSuQmCC",
+      "isBanned": false,
+      "createdAt": "2026-07-31T01:27:31.354Z"
+    }
+  ],
+  "friends": [],
+  "groups": [],
+  "messages": [],
+  "stamps": [
+    {
+      "id": "st_1",
+      "name": "いいね",
+      "category": "ベーシック",
+      "emoji": "👍"
+    },
+    {
+      "id": "st_2",
+      "name": "スマイル",
+      "category": "ベーシック",
+      "emoji": "😊"
+    },
+    {
+      "id": "st_3",
+      "name": "ハート",
+      "category": "ベーシック",
+      "emoji": "❤️"
+    },
+    {
+      "id": "st_4",
+      "name": "感謝",
+      "category": "ベーシック",
+      "emoji": "🙏"
+    },
+    {
+      "id": "st_5",
+      "name": "おめでとう",
+      "category": "イベント",
+      "emoji": "🎉"
+    },
+    {
+      "id": "st_6",
+      "name": "スター",
+      "category": "イベント",
+      "emoji": "⭐"
+    },
+    {
+      "id": "st_7",
+      "name": "拍手",
+      "category": "イベント",
+      "emoji": "👏"
+    },
+    {
+      "id": "st_8",
+      "name": "炎",
+      "category": "イベント",
+      "emoji": "🔥"
+    }
+  ]
+}

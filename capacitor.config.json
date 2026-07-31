@@ -1,0 +1,6 @@
+{
+  "appId": "com.studios.reinchat",
+  "appName": "REINChat",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

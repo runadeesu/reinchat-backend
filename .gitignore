@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-app
+dist-electron
+.gradle
+tmp
+*.apk
+*.log
+.DS_Store

@@ -1,0 +1,9 @@
+{
+  "short_name": "REINChat",
+  "name": "REINChat - NextGen Messaging",
+  "icons": [],
+  "start_url": ".",
+  "background_color": "#090d16",
+  "theme_color": "#3b82f6",
+  "display": "standalone"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "reinchat",
+  "version": "1.0.0",
+  "description": "REINChat - Premium Realtime Cross-Platform Chat Application",
+  "main": "main-electron.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server/index.js",
+    "start": "node server/index.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
+    "electron:build": "npm run build && electron-builder",
+    "cap:sync": "npm run build && npx cap sync"
+  },
+  "build": {
+    "appId": "com.studios.reinchat",
+    "productName": "REINChat",
+    "directories": {
+      "output": "dist-app"
+    },
+    "win": {
+      "target": "dir"
+    }
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.4.2",
+    "@capacitor/cli": "^8.4.2",
+    "@capacitor/core": "^8.4.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.10",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "electron": "^43.2.0",
+    "electron-builder": "^26.15.3",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11"
+  }
+}
